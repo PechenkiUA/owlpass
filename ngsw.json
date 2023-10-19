@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1697741853693,
+  "timestamp": 1697742288767,
   "index": "https://PechenkiUA.github.io/owlpass/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://PechenkiUA.github.io/owlpass/favicon.ico",
         "https://PechenkiUA.github.io/owlpass/index.html",
-        "https://PechenkiUA.github.io/owlpass/main.3f78d3b9e11ccce6.js",
+        "https://PechenkiUA.github.io/owlpass/main.672f2a3a8e21e1d2.js",
         "https://PechenkiUA.github.io/owlpass/manifest.webmanifest",
         "https://PechenkiUA.github.io/owlpass/polyfills.534e7a670aada5c5.js",
         "https://PechenkiUA.github.io/owlpass/runtime.589898bcdca4550c.js",
@@ -54,8 +54,8 @@
     "https://PechenkiUA.github.io/owlpass/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://PechenkiUA.github.io/owlpass/assets/owl.svg": "9fd11d0ed50de0906f67f0bf42bff6c4edddca88",
     "https://PechenkiUA.github.io/owlpass/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://PechenkiUA.github.io/owlpass/index.html": "9ffda20c7aa0af227c685a4b4c38eb026d0de25e",
-    "https://PechenkiUA.github.io/owlpass/main.3f78d3b9e11ccce6.js": "d5802c60e265576efaa7abd2b93f71595d858462",
+    "https://PechenkiUA.github.io/owlpass/index.html": "cee01231f2d5b56da77035f1b5ae655adba8342a",
+    "https://PechenkiUA.github.io/owlpass/main.672f2a3a8e21e1d2.js": "7853daf5a10eb8aa9a4d10459318b4e868292fb0",
     "https://PechenkiUA.github.io/owlpass/manifest.webmanifest": "717ee7a8c95f3ac2fae172f35a696d990e7c82a8",
     "https://PechenkiUA.github.io/owlpass/polyfills.534e7a670aada5c5.js": "e3e94e8097087581a0acd28ba43c54ae7eaffb61",
     "https://PechenkiUA.github.io/owlpass/runtime.589898bcdca4550c.js": "f63054bd8dedf5658be6d0750d3f5feb537589fa",
