@@ -1,0 +1,51 @@
+<div class="wrap">
+  <span style="display:flex;">
+      <img src="assets/owl.svg" width="50">
+      <h2>Генератор паролю</h2>
+  </span>
+
+  <div class="form">
+    <div>
+      <label style="
+        display: flex;
+        align-items: center;
+      ">
+      <input [(ngModel)]="useMyString" type="checkbox">
+        Взяти за основу мою стрічку</label>
+    </div>
+
+    <div>
+      <p *ngIf="myStringError">Мінімум 5 символів</p>
+      <input *ngIf="useMyString" [(ngModel)]="myString" type="text" min="5">
+    </div>
+  </div>
+
+
+
+
+  <div class="card-container">
+
+    <button class="card card-small" (click)="generation(3)" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      <span>Генерувати</span>
+    </button>
+
+
+      <button *ngIf="!useMyString" class="card card-small" (click)="generation(5)" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <span>Трішки складніший</span>
+      </button>
+      <button *ngIf="!useMyString" class="card card-small" (click)="generation(10)" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        <span>Трішки складніший</span>
+      </button>
+
+  </div>
+
+  <!-- Terminal -->
+
+  <div class="terminal">
+    <pre (click)="copyToClipboard()">{{ result }}</pre>
+  </div>
+  <p *ngIf="textIsCopy">{{ textCopy }}</p>
+</div>
