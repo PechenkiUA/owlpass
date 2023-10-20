@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Clipboard} from '@angular/cdk/clipboard';
+import { generate } from "random-words";
 
 
 @Component({
@@ -10,7 +11,6 @@ import {Clipboard} from '@angular/cdk/clipboard';
 export class GenerationComponent  implements OnInit {
 
   result: string|any = '';
-  complexityLevel: number = 1;
   myString : any = 'MyString';
   useMyString: boolean = false;
   myStringError: any;
@@ -22,8 +22,12 @@ export class GenerationComponent  implements OnInit {
   }
 
   ngOnInit() {
-    this.myString = this.generateMemorablePasswordFromString(5);
+    //this.myString = this.generateMemorablePasswordFromString(5);
+    this.myString = generate({ minLength: 5, maxLength: 5 });
+    this.result = this.generateMemorablePassword(5);
   }
+
+
 
   generation(number: number) {
     this.validInput()
@@ -59,36 +63,27 @@ export class GenerationComponent  implements OnInit {
     this.myStringError = !!(this.myString && this.myString.length < 5);
   }
 
+  /**
+   *
+   * @param length
+   */
   generateMemorablePassword(length: number): string {
 
-    const dictionary = [
-      'apple',
-      'banana',
-      'cherry',
-      'date',
-      'fig',
-      'grape',
-      'kiwi',
-      'lemon',
-      'mango',
-      'orange',
-      'pear',
-      'plum',
-      'strawberry',
-      'watermelon',
-    ];
+    const dictionary = generate(100)
 
-    const specialChars = '!@#$%^&*';
+    let specialChars = '!@#$%^&*';
+    specialChars += "abcdefghijklmnopqrstuvwxyz";
+    specialChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    specialChars += "0123456789";
+    specialChars += "!@#$%^&*()_+~`|}{[?";
 
     let password = '';
 
     for (let i = 0; i < length; i++) {
-      if (i % 2 === 0) {
-        // Вибираємо слово зі словника
+      if (i % 3 === 0) {
         const randomWord = dictionary[Math.floor(Math.random() * dictionary.length)];
         password += randomWord;
       } else {
-        // Вибираємо випадковий спеціальний символ
         const randomChar = specialChars[Math.floor(Math.random() * specialChars.length)];
         password += randomChar;
       }
@@ -100,18 +95,26 @@ export class GenerationComponent  implements OnInit {
 
   generateMemorablePasswordFromString(input:any) {
 
-    input = this.transliterate(input);
+
     if (!isNaN(input)) {
       input = input.toString();
     }
-    const specialChars = '!@#$%^&*';
-    if (typeof input === 'string' && input.length > 0) {
 
+    input = this.transliterate(input);
+
+
+     let specialChars = '!@#$%^&*';
+      specialChars += "abcdefghijklmnopqrstuvwxyz";
+      specialChars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      specialChars += "0123456789";
+      specialChars += "!@#$%^&*()_+~`|}{[?";
+
+    if (typeof input === 'string' && input.length > 0) {
       input = input.replaceAll(' ','');
       const randomSpecialChar = specialChars[Math.floor(Math.random() * specialChars.length)];
 
       input += randomSpecialChar;
-      const shuffledInput = input.split('').sort(() => 0.5 - Math.random()).join('');
+      const shuffledInput = input.split('').sort(() => 0.1 - Math.random()).join('');
 
       return shuffledInput.slice(0, 8);
     } else {
